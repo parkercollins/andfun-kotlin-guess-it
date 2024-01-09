@@ -61,10 +61,15 @@ class GameFragment : Fragment() {
             updateWordText()
         }
 
-        // TODO (04) Setup the LiveData observation relationship by getting the LiveData from your
-        // ViewModel and calling observe. Make sure to pass in *this* and then an Observer lambda
-        updateScoreText()
-        updateWordText()
+        /** Setting up LiveData observation relationship **/
+        viewModel.word.observe(viewLifecycleOwner, Observer { newWord ->
+            binding.wordText.text = newWord
+        })
+
+        viewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
+            binding.scoreText.text = newScore.toString()
+        })
+
         return binding.root
 
     }
@@ -73,9 +78,8 @@ class GameFragment : Fragment() {
      * Called when the game is finished
      */
     fun gameFinished() {
-        // TODO (06) Add a null safety check here - you can use the elvis operator to pass 0 if
-        // the LiveData is null
-        val action = GameFragmentDirections.actionGameToScore(viewModel.score)
+        val currentScore = viewModel.score.value ?: 0
+        val action = GameFragmentDirections.actionGameToScore(currentScore)
         findNavController(this).navigate(action)
     }
 
