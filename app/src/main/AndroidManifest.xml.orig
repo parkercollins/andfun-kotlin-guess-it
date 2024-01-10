@@ -35,9 +35,14 @@
         <!-- screenOrientation attribute sets the default animation-->
         <activity
             android:name=".MainActivity"
+<<<<<<< HEAD
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape" android:exported="true">
+=======
             android:exported="true"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="landscape">
+>>>>>>> dev-local
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

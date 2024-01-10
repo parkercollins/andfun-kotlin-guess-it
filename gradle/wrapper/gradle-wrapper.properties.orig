@@ -1,6 +1,14 @@
+<<<<<<< HEAD
+#Thurs Aug 11 17:10:25 PDT 2020
+=======
 #Tue Jan 09 16:12:28 MST 2024
+>>>>>>> dev-local
 distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
 distributionUrl=https\://services.gradle.org/distributions/gradle-8.2-bin.zip
 zipStoreBase=GRADLE_USER_HOME
 zipStorePath=wrapper/dists
+<<<<<<< HEAD
+distributionUrl=https\://services.gradle.org/distributions/gradle-7.2-bin.zip
+=======
+>>>>>>> dev-local
