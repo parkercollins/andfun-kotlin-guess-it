@@ -22,6 +22,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import com.example.android.guesstheword.R
@@ -52,13 +53,9 @@ class GameFragment : Fragment() {
 
         binding.correctButton.setOnClickListener {
             viewModel.onCorrect()
-            updateScoreText()
-            updateWordText()
         }
         binding.skipButton.setOnClickListener {
             viewModel.onSkip()
-            updateScoreText()
-            updateWordText()
         }
 
         /** Setting up LiveData observation relationship **/
@@ -83,15 +80,4 @@ class GameFragment : Fragment() {
         findNavController(this).navigate(action)
     }
 
-    /** Methods for updating the UI **/
-
-    // TODO (05) Move this code to update the UI up to your Observers; remove references to
-    // updateWordText and updateScoreText - you shouldn't need them!
-    private fun updateWordText() {
-        binding.wordText.text = viewModel.word
-    }
-
-    private fun updateScoreText() {
-        binding.scoreText.text = viewModel.score.toString()
-    }
 }
